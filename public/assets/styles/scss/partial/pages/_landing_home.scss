@@ -1,0 +1,123 @@
+@use "./../abstracts"as abs;
+
+.landing-home {
+
+    .slider {
+
+        .carousel-item {
+            height: 80dvh;
+
+            img {
+                height: 100%;
+            }
+
+            .my-carousel-caption {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                display: flex;
+                padding: 1rem 15%;
+                align-items: center;
+                background: var(--shadow_bg);
+
+
+                .inner {
+                    color: var(--purity);
+                    font-weight: bolder;
+                    text-transform: uppercase;
+                }
+
+                p {
+                    color: var(--nature);
+                    padding: 0;
+                    margin: 0;
+                    font-size: 1.3rem;
+                    font-size: 1rem;
+                    font-style: italic;
+                }
+
+                h3 {
+                    font-size: clamp(1rem, 9vw, 4rem);
+                    width: min(100%, 30rem);
+                    word-wrap: break-word;
+                    user-select: none;
+                    font-weight: 900;
+                }
+
+                .btn-fresh {
+                    font-size: clamp(.8rem, 3vw, 1rem) !important;
+                    padding: 1em 1.5em !important;
+                }
+
+            }
+        }
+    }
+
+  
+
+    .why-choose-us {
+        display: grid;
+        gap: var(--padding);
+        position: relative;
+
+        @include abs.responsiveMedia(md) {
+            grid-template-columns: 2fr 1fr;
+            align-items: center;
+        }
+
+        .img {
+            position: absolute;
+            height: 100%;
+            z-index: -1;
+
+            img {
+                height: 100%;
+                object-position: center left;
+            }
+        }
+
+        &:not(.img) {
+            background: linear-gradient(to top right, var(--majesty_light), var(--fresh_light));
+        }
+
+        &__content {
+            color: var(--purity) !important;
+
+            .list-group-item {
+                color: var(--purity) !important;
+                background: transparent !important;
+            }
+
+            &-main {
+                display: grid;
+                gap: var(--padding);
+
+                @include abs.responsiveMedia(md) {
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                .text {
+                    line-height: 2;
+                }
+
+
+            }
+        }
+
+        &__aside {
+            display: flex;
+            justify-content: center;
+
+            .card {
+                background: var(--fresh);
+                height: 20rem;
+                box-shadow: 0 .4rem 0.8rem var(--shadow);
+                width: min(100%, 30rem);
+            }
+        }
+    }
+
+  
+
+}

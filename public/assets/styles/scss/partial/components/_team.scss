@@ -1,0 +1,36 @@
+@use "./../abstracts"as abs;
+
+.teams {
+    display: grid;
+    margin-top: var(--padding);
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: var(--padding);
+
+    @include abs.responsiveMedia(md) {
+        margin-block: var(--section_padding);
+
+        .card {
+            &:nth-of-type(2) {
+                transform: translateY(var(--section_padding));
+            }
+        }
+    }
+
+    .card {
+        border: none !important;
+
+        >* {
+            width: 80%;
+            margin: auto;
+            padding-inline: 0 !important;
+        }
+
+        &-img-top {
+            object-position: top center;
+        }
+
+        .btn {
+            padding: .25em .5em !important;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: var(--padding);
+
+    .card {
+        --mybackground: var(--fresh);
+        flex-direction: row;
+        padding: var(--padding);
+        align-items: center;
+
+        .icon {
+            background: var(--mybackground);
+            height: 90%;
+            aspect-ratio: 1/1;
+            display: grid;
+            place-content: center;
+            border-radius: 50%;
+            font-size: 2rem;
+            color: var(--purity);
+        }
+
+        &:nth-child(2) {
+            --mybackground: var(--nature);
+        }
+
+        &:nth-child(3) {
+            --mybackground: var(--majesty);
+        }
+    }
+}

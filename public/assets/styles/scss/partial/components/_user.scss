@@ -1,0 +1,14 @@
+.user {
+    font-weight: 900;
+    text-transform: uppercase;
+
+    &-block {
+        display: grid;
+        gap: var(--halfPadding);
+    }
+
+    .position {
+        font-size: .7em;
+        color: var(--fresh);
+    }
+}

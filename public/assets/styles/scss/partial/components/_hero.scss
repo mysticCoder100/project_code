@@ -1,0 +1,31 @@
+.hero {
+    height: 40dvh;
+    position: relative;
+    color: var(--purity);
+
+
+    .img {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    .landing-section-title {
+
+        &:before {
+            display: none !important;
+        }
+    }
+
+    .my-container {
+        display: grid;
+        place-items: center;
+        background: var(--shadow_bg);
+        height: 100%;
+    }
+}

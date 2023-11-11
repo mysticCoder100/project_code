@@ -1,0 +1,14 @@
+* {
+    outline: none;
+    scrollbar-width: thin !important;
+}
+
+::-webkit-scrollbar {
+    width: 0.2rem;
+    height: 0.2rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--fresh);
+    border-radius: 10rem;
+}

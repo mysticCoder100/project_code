@@ -1,0 +1,70 @@
+@use "./../abstracts"as abs;
+
+.payment {
+
+    .payment-section {
+        @include abs.responsiveMedia(md) {
+            display: grid;
+            grid-template-columns: .3fr 5fr;
+            padding-left: var(--section_padding);
+        }
+
+        .controls {
+            position: sticky;
+            top: 6rem;
+            background: var(--purity);
+            padding: var(--padding);
+            box-shadow: 0 .2rem 1rem var(--shadow);
+            display: flex;
+            gap: var(--padding);
+            flex-wrap: wrap;
+            z-index: 10;
+
+            @include abs.responsiveMedia(md) {
+                flex-direction: column;
+                top: 8rem;
+                margin-block: var(--section_padding);
+                height: max-content;
+                width: 15rem;
+                border-radius: .5rem;
+            }
+
+            .btn {
+                padding-left: 0 !important;
+                text-align: left !important;
+                flex-grow: 1;
+
+                &:is(:hover, :focus) {
+                    color: var(--majesty);
+                }
+
+                &.my-active {
+                    padding-left: 1em !important;
+                    color: var(--purity) !important;
+                    background: var(--majesty);
+                }
+            }
+        }
+
+        .form-fields {
+            form {
+                display: none;
+                width: min(40rem, 100%);
+                margin: auto;
+
+                &.my-active {
+                    display: grid;
+
+                    .btn[type="submit"] {
+                        justify-self: end;
+                    }
+                }
+
+                .landing-section-title {
+                    margin-bottom: var(--padding);
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,95 @@
+@use "./../abstracts/breaking_point"as bp;
+
+.admin-aside {
+    background: var(--shadow);
+    position: fixed;
+    height: 100dvh;
+    width: 100%;
+    z-index: 1002;
+    cursor: pointer;
+    transform: translateX(-100%);
+    transition: 0.25s ease-in-out transform;
+
+    &.open {
+        transform: translateX(0);
+    }
+
+    @include bp.responsiveMedia(md) {
+        position: sticky;
+        top: 0;
+        transition: 0s ease-in-out transform;
+        transform: translateX(0) !important;
+    }
+
+    .sidebar {
+        width: min(15rem, 90%);
+        height: 100%;
+        background: var(--majesty);
+        box-shadow: 0.4rem 0 0.2rem var(--shadow);
+        cursor: default;
+        color: var(--purity);
+        display: grid;
+        overflow-y: auto;
+        grid-template-rows: auto 1fr auto;
+
+        @include bp.responsiveMedia(md) {
+            width: 15rem;
+            box-shadow: none;
+        }
+
+        .top {
+            padding: var(--padding);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: inherit;
+
+            .img-wrapper {
+                width: 3rem;
+            }
+        }
+
+        .main {
+            .list-group-item {
+                background: inherit;
+                border: none !important;
+                padding: 0 !important;
+                border-radius: 0 !important;
+
+            }
+
+            .nav-link {
+                color: #eceaea;
+                display: flex;
+                width: 100%;
+                gap: 0.5rem;
+                padding-inline: var(--padding);
+                transition: 0.25s ease-in-out background,
+                    0.25s ease-in-out color !important;
+
+                &:is(:hover, .my-active) {
+                    color: var(--purity) !important;
+                    background: var(--majesty_dark);
+                }
+            }
+        }
+
+        .foot {
+            display: flex;
+            padding: var(--padding);
+            align-items: end;
+            gap: 1rem;
+
+            .img-wrapper {
+                width: 2rem;
+
+                img {
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}

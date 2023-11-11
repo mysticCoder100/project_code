@@ -1,0 +1,142 @@
+@use "../abstracts"as abs;
+
+.top-info {
+    background: var(--majesty);
+    box-shadow: 0 0 0.6rem 0.2rem var(--shadow);
+    display: flex;
+    padding: var(--halfPadding) var(--padding);
+    justify-content: space-between;
+    gap: 1rem;
+    z-index: 1002;
+
+    >* {
+        margin-bottom: 0 !important;
+        color: var(--purity);
+        font-size: 0.8rem;
+    }
+}
+
+.landing-header {
+    nav {
+        overflow: hidden;
+        padding-block: var(--padding);
+
+        @include abs.responsiveMedia(md) {
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            padding-inline: var(--padding);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+
+            .logo-wrapper {
+                width: 4rem;
+
+                img {
+                    aspect-ratio: 1/1;
+                }
+            }
+
+            .btn {
+                font-size: 1.5rem !important;
+                color: var(--grey) !important;
+
+                .fa-xmark {
+                    font-size: 1.8rem;
+                }
+
+                &:is(:focus, :hover) {
+                    color: var(--majesty) !important;
+                }
+
+                @include abs.responsiveMedia(md) {
+                    display: none;
+                }
+            }
+        }
+
+        .list-group {
+            --height: 0;
+            height: var(--height);
+            transition: 0.25s ease height;
+
+            &.open {
+                height: var(--height);
+            }
+
+            @include abs.responsiveMedia(md) {
+                --height: 100% !important;
+                flex-direction: row;
+                gap: var(--padding);
+                align-items: end;
+            }
+
+            .list-group-item {
+                border-radius: 0 !important;
+                border-inline: none !important;
+                transition: 0.25s ease-in-out color !important;
+                text-align: left;
+
+                &:is(:focus, :hover) {
+                    color: var(--majesty_light) !important;
+                }
+
+                &:is(:first-of-type) {
+                    border-top: none !important;
+                }
+
+                &:is(:last-child) {
+                    border-bottom: none !important;
+                    padding-bottom: var(--padding);
+                }
+
+                &.my-active {
+                    text-transform: uppercase;
+                    color: var(--majesty_light);
+                }
+
+                @include abs.responsiveMedia(md) {
+                    border: none;
+                    font-size: 1rem !important;
+                    padding: 0 !important;
+                }
+            }
+        }
+    }
+}
+
+#userFormModal {
+
+    button[type="submit"] {
+        margin-block: var(--halfPadding);
+    }
+
+    .register,
+    .login {
+        display: block;
+        margin-left: auto;
+        padding: 0 !important;
+        font-size: clamp(.8rem, 2vw, 1rem) !important;
+
+        &:is(:focus, :hover) {
+            .text-primary {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    form {
+        display: none;
+
+        &.show {
+            display: block !important;
+        }
+    }
+
+}

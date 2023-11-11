@@ -1,0 +1,34 @@
+@use "./breaking_point"as bp;
+
+@mixin landingPage {
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "info info info info"
+        "header header header header"
+        "main main main main"
+        "main main main main"
+        "footer footer footer footer";
+}
+
+@mixin adminPage {
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+        "header header header header"
+        "main main main main"
+        "main main main main"
+        "footer footer footer footer";
+
+    &.lock {
+        overflow-y: hidden;
+    }
+
+    @include bp.responsiveMedia(md) {
+        overflow-y: auto !important;
+        grid-template-areas:
+            "sidebar header header header"
+            "sidebar main main main"
+            "sidebar main main main"
+            "sidebar footer footer footer";
+    }
+}

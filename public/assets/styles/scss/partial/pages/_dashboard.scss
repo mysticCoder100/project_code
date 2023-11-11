@@ -1,0 +1,22 @@
+@use "./../abstracts"as abs;
+
+.admin-dashboard {
+    .chart {
+        display: grid;
+        gap: var(--padding);
+        container-type: inline-size;
+        align-items: end;
+
+        @include abs.responsiveMedia(md) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        >div {
+            overflow-x: auto;
+
+            h4 {
+                margin-bottom: var(--padding);
+            }
+        }
+    }
+}

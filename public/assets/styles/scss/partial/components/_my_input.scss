@@ -1,0 +1,32 @@
+.my-input {
+    margin-bottom: var(--padding);
+
+    .input-wrapper {
+        position: relative;
+
+        textarea {
+            resize: none;
+        }
+
+        .form-control,
+        .form-select {
+            font-size: inherit !important;
+
+            &:is(:focus) {
+                border-color: var(--majesty_light);
+            }
+        }
+
+        .form-control[data-type="password"] {
+            padding-right: 3em !important;
+        }
+
+        .btn {
+            position: absolute;
+            padding: 0 !important;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 1em;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@use "../abstracts"as abs;
+
+.form-control {
+    @include abs.bootstrapReset;
+}
+
+.form-select {
+    @include abs.bootstrapReset;
+}
+
+.btn {
+    @include abs.bootstrapReset;
+}
+
+.btn-close {
+    @include abs.bootstrapReset;
+}

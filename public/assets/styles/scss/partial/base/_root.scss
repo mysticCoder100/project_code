@@ -1,0 +1,81 @@
+@use "./../abstracts"as abs;
+
+:root {
+
+    @each $name,
+    $color in abs.$colors {
+        --#{$name}: #{$color};
+        --#{$name}_light: #{$color}65;
+        --#{$name}_dark: #{darken($color, 10%)};
+    }
+
+    --purity: #ffffff;
+    --grey: #333333;
+    --shadow: #00000035;
+    --padding: 1rem;
+    --halfPadding: 0.5rem;
+    --secondary_text: #efe3e3a1;
+    --section_padding: 3.5rem;
+    --admin_padding: 2rem;
+    --shadow_bg: #00000067;
+}
+
+body {
+    display: grid;
+    min-height: 100dvh;
+
+    &[data-role="landing"] {
+        @include abs.landingPage;
+    }
+
+    &[data-role="admin"] {
+        @include abs.adminPage;
+    }
+}
+
+img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: var(--purity);
+    z-index: 100;
+    grid-area: header;
+    box-shadow: 0 0 0.6rem 0.2rem var(--shadow);
+}
+
+.top-info {
+    grid-area: info;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+}
+
+aside {
+    grid-area: sidebar;
+}
+
+.my-container {
+    padding: var(--padding);
+
+    @include abs.responsiveMedia(md) {
+        padding: var(--section_padding);
+    }
+
+    &-admin {
+        padding: var(--padding);
+
+        @include abs.responsiveMedia(md) {
+            padding: var(--admin_padding);
+        }
+    }
+}

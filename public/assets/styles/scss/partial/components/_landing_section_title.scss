@@ -1,0 +1,18 @@
+.landing-section-title {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    word-wrap: break-word;
+    user-select: none;
+    font-weight: 900;
+    position: relative;
+    text-transform: uppercase;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: -5%;
+        left: 0;
+        width: min(5rem, 10%);
+        height: .3rem;
+        background: var(--nature);
+    }
+}

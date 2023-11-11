@@ -1,0 +1,41 @@
+@use "./../abstracts"as abs;
+
+.contact {
+    .landing-section-title {
+        margin-bottom: var(--padding);
+
+        @include abs.responsiveMedia(md) {
+            margin-bottom: var(--section_padding);
+        }
+    }
+
+    .contact-form {
+        .input {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 27rem), 1fr));
+            gap: var(--padding);
+        }
+
+        form {
+            display: grid;
+            font-size: clamp(1rem, 1.5vw, 1.3rem);
+            gap: var(--padding);
+
+
+            .btn[type="submit"] {
+                justify-self: end;
+                font-size: inherit !important;
+            }
+        }
+    }
+
+    .map-container {
+        .map {
+            width: 100%;
+
+            iframe {
+                width: 100%;
+            }
+        }
+    }
+}

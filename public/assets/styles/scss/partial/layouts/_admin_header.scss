@@ -1,0 +1,72 @@
+@use "./../abstracts/breaking_point"as bp;
+
+.admin-header {
+    display: flex;
+    padding: var(--padding);
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    .left {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        >* {
+            margin-bottom: 0;
+        }
+
+        .btn {
+            padding: 0 !important;
+            transition: 0.25s ease-in-out color;
+
+            &:is(:hover, :focus) {
+                color: var(--majesty_light);
+            }
+
+            @include bp.responsiveMedia(md) {
+                display: none;
+            }
+        }
+    }
+
+    .right {
+        .icon {
+            color: var(--fresh);
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            padding: 0 !important;
+            align-items: center;
+
+            &::after {
+                transition: 0.05s ease-in-out transform;
+            }
+
+            &.show {
+                &::after {
+                    transform: rotateX(180deg);
+                }
+            }
+        }
+
+        .img-wrapper {
+            width: 2rem;
+            aspect-ratio: 1/1;
+            border-radius: 2rem;
+
+            img {
+                border-radius: inherit;
+            }
+        }
+    }
+}
+
+.admin-footer {
+    font-size: 0.8rem;
+    padding: var(--padding);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}

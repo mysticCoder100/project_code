@@ -1,0 +1,78 @@
+@use "./../abstracts"as abs;
+
+.info-list {
+
+    .list-group-item {
+        border-bottom: 0 !important;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        padding-left: 0;
+
+        &::before {
+            content: '⃗';
+            font-size: 1.4rem;
+            border-radius: 50%;
+            width: 1rem;
+            color: var(--purity);
+            height: 1rem;
+            background: var(--nature);
+            display: grid;
+            place-items: center;
+        }
+    }
+}
+
+.welcome {
+    display: grid;
+    gap: 1rem;
+
+    &-flush {
+        .welcome__img {
+            border-radius: 0 !important;
+            border-radius: .25rem !important;
+        }
+    }
+
+    @include abs.responsiveMedia(md) {
+        grid-template-columns: 1.5fr 1.2fr;
+    }
+
+    &__img-space {
+        display: grid;
+        place-items: center;
+    }
+
+    &__img {
+        width: min(80%, 30rem);
+        overflow: hidden;
+        border-radius: 50%;
+        box-shadow: .8rem 0 .6rem var(--shadow);
+
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__content {
+        display: grid;
+        gap: var(--padding);
+
+        .memo {
+            font-weight: 800;
+            color: var(--majesty);
+            font-size: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .text-muted {
+            line-height: 2;
+            margin-bottom: 0 !important;
+        }
+
+        .btn {
+            justify-self: start;
+        }
+    }
+}

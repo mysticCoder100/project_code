@@ -1,0 +1,14 @@
+@use "../abstracts" as abs;
+
+$colors: abs.$colors;
+
+@each $name, $color in $colors {
+    .btn-#{$name} {
+        background: #{$color};
+        color: var(--purity) !important;
+
+        &:is(:focus, :hover) {
+            background: darken($color, 5%);
+        }
+    }
+}
