@@ -29,7 +29,8 @@
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('manage.accomodations') }}"
+                                    class="nav-link {{ request()->routeIs('manage.accomodations') ? 'my-active' : '' }}">
                                     <span class="icon"><i class="fas fa-bed"></i></span>
                                     <span>Accomodation</span>
                                 </a>
@@ -37,21 +38,22 @@
                         </ul>
                     </div>
                 </li>
-                <li class="sidebar-dropdown list-group-item">
+                <li class="sidebar-dropdown list-group-item {{ request()->routeIs('payment.*') ? 'open' : '' }}">
                     <button class="sidebar-dropdown_toggle nav-link">
                         <span>Payments</span>
                         <span class="icon"><i class="fas fa-caret-down"></i></span>
                     </button>
                     <div class="sidebar-dropdown_menu">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
+                            {{-- <li class="list-group-item">
                                 <a href="#" class="nav-link">
                                     <span class="icon"><i class="fas fa-credit-card"></i></span>
                                     <span>Set Payment Options</span>
                                 </a>
-                            </li>
+                            </li> --}}
                             <li class="list-group-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('payment.view') }}"
+                                    class="nav-link  {{ request()->routeIs('payment.view') ? 'my-active' : '' }}">
                                     <span class="icon"><i class="fas fa-money-check-alt"></i></span>
                                     <span>Confirm Payments</span>
                                 </a>
@@ -60,18 +62,30 @@
                     </div>
                 </li>
                 <li class="list-group-item">
-                    <a href="#" class="nav-link">
-                        <span class="icon"><i class="fas fa-wrench"></i></span>
-                        <span>Settings</span>
+                    <a href="{{ url('admin/administrators') }}"
+                        class="nav-link {{ request()->is('admin/administrators') ? 'my-active' : '' }}">
+                        <span class="icon"><i class="fas fa-users-gear"></i></span>
+                        <span>Administrators</span>
                     </a>
                 </li>
             </ul>
         </div>
         <div class="foot">
-            <div class="img-wrapper">
-                <img src="{{ url('assets/images/default.png') }}" alt="">
+            <a href="{{ url('admin/settings') }}"
+                class="nav-link {{ request()->is('admin/settings') ? 'my-active' : '' }}">
+                <span class="icon"><i class="fas fa-wrench"></i></span>
+                <span>Settings</span>
+            </a>
+            <a class="nav-link" href="{{ url('/admin/logout') }}">
+                <span class="icon text-danger"><i class="fas fa-sign-out-alt"></i> </span>
+                Sign Out
+            </a>
+            <div class="user">
+                <div class="img-wrapper">
+                    <img src="{{ url('assets/images/default.png') }}" alt="">
+                </div>
+                <h6 class="usernam m-0 fw-bold ">{{ Auth::guard('administrator')->user()->firstname }}</h6>
             </div>
-            <h6 class="usernam m-0 fw-bold ">Abdul-Azeem</h6>
         </div>
     </section>
 </aside>

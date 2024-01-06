@@ -1,0 +1,82 @@
+.admin-attractions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+    .attractions_list {
+        .table-responsive {
+            border-radius: var(--radius);
+            box-shadow: 0 .1rem .6rem var(--shadow);
+
+            >* {
+                padding: var(--padding);
+            }
+
+            .top {
+                margin-bottom: var(--padding);
+                display: flex;
+                gap: var(--padding);
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: .1rem solid var(--majesty_light);
+
+            }
+
+            tbody {
+                counter-reset: index;
+
+                td[scope=row] {
+                    &:before {
+                        counter-increment: index;
+                        content: counter(index);
+                    }
+                }
+
+
+                .action {
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+
+                    .btn {
+                        position: relative;
+
+                        &:hover {
+                            span {
+                                opacity: 1;
+                                transform: translate(-50%, -150%);
+                            }
+                        }
+
+                        span {
+                            position: absolute;
+                            transform: translate(-50%);
+                            left: 50%;
+                            background: var(--grey);
+                            opacity: 0;
+                            padding: .2rem .5rem;
+                            font-weight: bolder;
+                            border-radius: .25em;
+                            transition: .25s ease-in-out opacity, .25s ease-in-out transform;
+
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                bottom: -.35em;
+                                left: 50%;
+                                transform: translateX(-50%) rotate(45deg);
+                                aspect-ratio: 1/1;
+                                height: .7em;
+                                background: inherit;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+}

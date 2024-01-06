@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Custom;
 
 class LandingController extends Controller
@@ -28,10 +28,21 @@ class LandingController extends Controller
     public function payment()
     {
         $visitationForm = (new Custom\PaymentPageForm())->bookVisitation();
+        $paymentForm = (new Custom\PaymentPageForm())->makePayment();
         $accomodationForm = (new Custom\PaymentPageForm())->bookAccomodation();
         return view("payment", [
             "visitationForm" => $visitationForm,
-            "accomodationForm" => $accomodationForm
+            "accomodationForm" => $accomodationForm,
+            "paymentForm" => $paymentForm
         ]);
+    }
+
+    public function attractions()
+    {
+        return view("attractions");
+    }
+    public function accomodations()
+    {
+        return view("accomodations");
     }
 }

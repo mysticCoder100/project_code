@@ -1,5 +1,9 @@
 .sidebar-dropdown {
+    display: grid;
+
     &:is(.open) {
+
+
         .sidebar-dropdown_toggle.nav-link {
             &:hover {
                 background: none !important;
@@ -31,16 +35,15 @@
     }
 
     .sidebar-dropdown_menu {
+        justify-self: end;
         display: grid;
+        border-left: .3rem solid var(--fresh);
         grid-template-rows: 0fr;
         transition: 0.25s ease-in-out grid-template-rows;
+        width: calc(100% - var(--padding)) !important;
 
         .list-group {
             overflow: hidden;
-        }
-
-        .nav-link {
-            padding-left: 2rem !important;
         }
 
     }

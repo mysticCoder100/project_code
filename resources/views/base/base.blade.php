@@ -9,14 +9,16 @@
 
         <link rel="stylesheet" href="http://localhost:100/bootstrap.min.css">
         <link rel="stylesheet" href="http://localhost:100/fontawesome6/css/all.min.css">
+        <link rel="stylesheet" href="http://localhost:100/datatables_default/datatables.min.css">
         <link rel="stylesheet" href="{{ asset('assets/styles/css/main.css') }}">
         @yield('style')
 
         <script src=" http://localhost:100/jquery.js" defer></script>
         <script src="http://localhost:100/bootstrap.bundle.min.js" defer></script>
-        <script src=" http://localhost:100/fontawesome6/js/all.min.js" defer></script>
-        <script src=" http://localhost:100/alpine.js" defer></script>
-        <script src=" http://localhost:100/chart.js" defer></script>
+        <script src="http://localhost:100/fontawesome6/js/all.min.js" defer></script>
+        <script src="http://localhost:100/datatables_default/datatables.min.js" defer></script>
+        <script src="http://localhost:100/alpine.js" defer></script>
+        <script src="http://localhost:100/chart.js" defer></script>
         <script src="{{ asset('assets/script/script.js') }}" defer></script>
         @yield('script')
     </head>

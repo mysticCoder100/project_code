@@ -1,8 +1,9 @@
-@use "../abstracts" as abs;
+@use "../abstracts"as abs;
 
 $colors: abs.$colors;
 
-@each $name, $color in $colors {
+@each $name,
+$color in $colors {
     .btn-#{$name} {
         background: #{$color};
         color: var(--purity) !important;

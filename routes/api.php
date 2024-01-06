@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,3 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
-Route::get('/user', function (Request $request) {
-    return ["username" => "brand", "sex" => "M"];
-});

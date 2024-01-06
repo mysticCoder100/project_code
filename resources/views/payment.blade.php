@@ -11,9 +11,9 @@
             </div>
 
             <div class="my-container form-fields">
-                <form action="">
+                <form action="" id="bookVisitation" method="POST">
                     <h5 class="landing-section-title">Book a visitation</h5>
-
+                    @csrf
                     <div class="fields">
                         @foreach ($visitationForm as $field)
                             <x-generic.input :field=$field />
@@ -21,9 +21,9 @@
                     </div>
                     <button type="submit" class="btn btn-majesty">Book a Visitation</button>
                 </form>
-                <form action="">
+                <form action="" id="bookAccomodation" method="POST">
                     <h5 class="landing-section-title">Book an Accomodation</h5>
-
+                    @csrf
                     <div class="fields">
                         @foreach ($accomodationForm as $field)
                             <x-generic.input :field=$field />
@@ -31,11 +31,11 @@
                     </div>
                     <button type="submit" class="btn btn-majesty">Book an Accomodation</button>
                 </form>
-                <form action="">
+                <form action="" id="makePayment" method="POST">
                     <h5 class="landing-section-title">Make a Payment</h5>
-
+                    @csrf
                     <div class="fields">
-                        @foreach ($visitationForm as $field)
+                        @foreach ($paymentForm as $field)
                             <x-generic.input :field=$field />
                         @endforeach
                     </div>

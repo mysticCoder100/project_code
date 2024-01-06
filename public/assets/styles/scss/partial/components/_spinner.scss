@@ -1,0 +1,16 @@
+.spinner {
+
+    @keyframes rotateSpinner {
+        from {
+            rotate: 0deg;
+        }
+
+        to {
+            rotate: 3600deg;
+        }
+    }
+
+    .icon {
+        animation: rotateSpinner 5s linear infinite;
+    }
+}

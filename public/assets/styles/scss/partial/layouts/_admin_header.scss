@@ -35,10 +35,19 @@
             color: var(--fresh);
         }
 
+        .dropdown-item {
+
+            &:is(:hover, .my-active) {
+                color: #000000;
+                background: #E9ECEF;
+            }
+        }
+
         .dropdown-toggle {
             display: flex;
             padding: 0 !important;
             align-items: center;
+            gap: var(--halfPadding);
 
             &::after {
                 transition: 0.05s ease-in-out transform;

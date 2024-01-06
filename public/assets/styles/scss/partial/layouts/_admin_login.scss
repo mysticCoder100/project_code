@@ -1,0 +1,25 @@
+.admin-login {
+    display: grid;
+    place-items: center;
+
+    section {
+        width: min(90%, 25rem);
+
+        .logo {
+            width: 25%;
+            margin: auto;
+        }
+
+        .tail {
+            text-align: center;
+            color: var(--majesty);
+        }
+
+        form {
+            box-shadow: 0 0 1rem .05rem #00000024;
+            padding: var(--padding);
+            margin-block: calc(var(--padding) * 2);
+            border-radius: var(--radius);
+        }
+    }
+}

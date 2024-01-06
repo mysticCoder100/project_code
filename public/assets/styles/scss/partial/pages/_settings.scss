@@ -1,0 +1,16 @@
+.settings-main {
+
+    .settings {
+        display: grid;
+        height: 100%;
+        grid-template-rows: auto 1fr;
+        gap: var(--padding);
+        place-items: center;
+
+        &>* {
+            width: min(40rem, 100%);
+        }
+
+
+    }
+}

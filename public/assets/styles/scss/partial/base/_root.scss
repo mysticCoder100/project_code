@@ -18,6 +18,7 @@
     --section_padding: 3.5rem;
     --admin_padding: 2rem;
     --shadow_bg: #00000067;
+    --radius: .5rem;
 }
 
 body {
@@ -67,12 +68,17 @@ aside {
 .my-container {
     padding: var(--padding);
 
+
     @include abs.responsiveMedia(md) {
         padding: var(--section_padding);
     }
 
     &-admin {
         padding: var(--padding);
+
+        &:last-of-type {
+            padding-bottom: 0 !important;
+        }
 
         @include abs.responsiveMedia(md) {
             padding: var(--admin_padding);

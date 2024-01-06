@@ -1,0 +1,36 @@
+.payment-view {
+
+    .modal-body {
+        display: grid;
+
+        .status {
+            display: flex;
+            gap: var(--halfPadding);
+            align-items: center;
+            margin-left: auto;
+
+            .indicator {
+                display: block;
+                height: .8rem;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+            }
+        }
+
+        .record {
+            display: flex;
+            column-gap: var(--padding);
+            margin-bottom: var(--halfPadding);
+            flex-wrap: wrap;
+
+            >p {
+                margin-bottom: 0;
+
+                &:first-of-type {
+                    color: var(--majesty);
+                    font-weight: 900;
+                }
+            }
+        }
+    }
+}

@@ -23,15 +23,22 @@
             <a href="{{ url('/contact') }}" class="list-group-item {{ request()->is('contact') ? 'my-active' : '' }}">
                 Contact
             </a>
-            <a href="#" class="list-group-item">Attractions</a>
-            <a href="#" class="list-group-item">Guest Houses</a>
+            <a href="{{ url('/attractions') }}"
+                class="list-group-item {{ request()->is('attractions') ? 'my-active' : '' }}">
+                Attractions
+            </a>
+            <a href="{{ url('/accomodations') }}"
+                class="list-group-item {{ request()->is('accomodations') ? 'my-active' : '' }}">Accomodations</a>
             <a href="{{ url('/payment') }}"
                 class="list-group-item {{ request()->is('payment') ? 'my-active' : '' }}">Payment</a>
-            <button class="list-group-item" id="userFormToggler">Login</button>
+            @if (Auth::guard('tourist')->check())
+                <a href="#" class="list-group-item">My History</a>
+            @else
+                <button class="list-group-item" id="userFormToggler">Login</button>
+            @endif
         </div>
     </nav>
 </header>
-
 
 <!-- Login Modal -->
 <div class="modal fade" id="userFormModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
@@ -44,8 +51,8 @@
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-
-                    <form action="" id="loginForm">
+                    <form action="/touristlogin" id="loginForm" method="POST">
+                        @csrf
                         @foreach ($loginFields as $loginField)
                             <x-generic.input :field="$loginField" />
                         @endforeach
@@ -57,7 +64,8 @@
                         </div>
                     </form>
 
-                    <form action="" id="registerForm">
+                    <form action="/touristregister" method="POST" id="registerForm">
+                        @csrf
                         @foreach ($registerFields as $registerField)
                             <x-generic.input :field="$registerField" />
                         @endforeach

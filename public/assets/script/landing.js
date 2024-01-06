@@ -1,4 +1,4 @@
-let paymentControls = [...$(".payment-section .controls .btn")];
+export let paymentControls = [...$(".payment-section .controls .btn")];
 
 $(window).on("load", () => {
     let index = paymentControls.findIndex((control) =>
@@ -46,7 +46,7 @@ let handleCloseLoginForm = function () {
     $("#registerForm").addClass("show");
 };
 
-let handleOpenPaymentFields = (index) => {
+export let handleOpenPaymentFields = (index) => {
     let fields = [...$(".payment-section form")];
     fields.forEach((field, i) => {
         $(field).toggleClass("my-active", i == index);

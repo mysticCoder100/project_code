@@ -1,0 +1,27 @@
+.success-page {
+    display: grid;
+    place-items: center;
+
+    .my-container {
+        width: min(95%, 35rem);
+
+        div {
+            border: .1rem solid var(--majesty);
+            padding: var(--padding);
+            padding-block: 4rem;
+            border-radius: var(--radius);
+
+            &>* {
+                margin: auto;
+                text-align: center;
+            }
+
+            .icon {
+                display: block;
+
+                font-size: 6rem;
+            }
+
+        }
+    }
+}

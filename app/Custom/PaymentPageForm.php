@@ -2,6 +2,8 @@
 
 namespace App\Custom;
 
+use App\Models\Accomodation;
+
 
 class PaymentPageForm
 {
@@ -10,8 +12,8 @@ class PaymentPageForm
     {
         return [
             [
-                "name" => "fullname",
-                "placeholder" => "Full Name",
+                "name" => "name",
+                "placeholder" => "Name",
                 "type" => "text",
             ],
             [
@@ -20,14 +22,25 @@ class PaymentPageForm
                 "type" => "email",
             ],
             [
-                "name" => "phonenumber",
-                "placeholder" => "Phone Number",
-                "type" => "tel",
-            ],
-            [
                 "name" => "visitor_number",
                 "placeholder" => "Number of visitor(s)",
                 "type" => "text",
+            ],
+            [
+                "name" => "want_accomodation",
+                "placeholder" => "Want an Accomodation",
+                "type" => "select",
+                "option" => [
+                    [
+                        "value" => "true",
+                        "placeholder" => "Yes",
+                    ],
+                    [
+                        "value" => "false",
+                        "placeholder" => "No",
+                    ],
+                ],
+                "select" => true
             ],
             [
                 "name" => "visitation_date",
@@ -37,11 +50,35 @@ class PaymentPageForm
         ];
     }
 
-    public function bookAccomodation()
+    public function makePayment()
     {
         return [
             [
-                "name" => "visit_id",
+                "name" => "visitation_id",
+                "placeholder" => "Visitation Id",
+                "type" => "text",
+            ],
+            [
+                "name" => "email",
+                "placeholder" => "Email",
+                "type" => "text",
+            ],
+        ];
+    }
+
+    public function bookAccomodation()
+    {
+        $accomodations = Accomodation::all();
+        $option = [];
+        foreach ($accomodations as $accomodation) {
+            array_push($option, [
+                "placeholder" => $accomodation->accomodation_name,
+                "value" => $accomodation->accomodation_id,
+            ]);
+        }
+        return [
+            [
+                "name" => "visitation_id",
                 "placeholder" => "Visitation Id",
                 "type" => "text",
             ],
@@ -49,14 +86,14 @@ class PaymentPageForm
                 "name" => "accomodation",
                 "placeholder" => "Select an Accomodation",
                 "type" => "select",
-                "option" => [
-                    "Option One",
-                    "Option Two",
-                    "Option Three",
-                    "Option Four",
-                ],
+                "option" => $option,
                 "select" => true
-            ]
+            ],
+            [
+                "name" => "accomodation_count",
+                "placeholder" => "Accomodation Count (Number(s) of Room)",
+                "type" => "text",
+            ],
         ];
     }
 }

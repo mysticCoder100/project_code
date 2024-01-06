@@ -5,6 +5,7 @@ namespace App\View\Components\admin;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use App\Models;
 
 class DashboardCards extends Component
 {
@@ -21,19 +22,24 @@ class DashboardCards extends Component
 
     public function setCardContent()
     {
+
+        $touristCount = Models\Tourist::count();
+        $attractionsCount = Models\Attraction::count();
+        $visitationsCount = Models\Visitation::count();
+
         $this->contents = [
             [
                 "title" => "Registered Users",
                 "icon" => "far fa-user",
-                "count" => 3400
+                "count" => $touristCount
             ], [
                 "title" => "Attractions",
                 "icon" => "far fa-map",
-                "count" => 30000
+                "count" => $attractionsCount
             ], [
                 "title" => "Visitations",
                 "icon" => "fas fa-bullseye",
-                "count" => 8000
+                "count" => $visitationsCount
             ]
         ];
     }

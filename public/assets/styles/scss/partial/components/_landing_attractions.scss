@@ -1,0 +1,40 @@
+@use "./../abstracts"as abs;
+
+
+.attractions_wrapper {
+    --width: 12rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--width)), 1fr));
+    gap: 2rem var(--padding);
+
+    @include abs.responsiveMedia(md) {
+        --width: 18.5rem;
+    }
+
+    .card {
+        box-shadow: .1rem 0 .8rem #00000012;
+    }
+
+    .card-img {
+        width: 100%;
+        aspect-ratio: 1/.5;
+        object-fit: cover;
+        object-position: top center;
+
+        @include abs.responsiveMedia(sm) {
+            aspect-ratio: 1/1;
+        }
+    }
+
+    .card-body {
+        display: grid;
+
+        p.price:last-child {
+            align-self: end;
+            justify-self: end;
+            font-weight: 800;
+            color: var(--majesty) !important;
+        }
+    }
+
+}
