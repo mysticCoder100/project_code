@@ -36,8 +36,7 @@ $("#bookVisitation").on("submit", async function (e) {
         }).insertAfter(form.find(".landing-section-title"));
         form.find("input").val("");
         setTimeout(() => {
-            let controlIndex =
-                wantAcocmodation === "true" ? 1 : paymentControls.length - 1;
+            let controlIndex = wantAcocmodation === "true" ? 1 : paymentControls.length - 1;
             paymentControls.forEach((control) => {
                 $(control).removeClass("my-active");
             });

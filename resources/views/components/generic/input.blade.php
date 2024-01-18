@@ -21,7 +21,8 @@
             </select>
         @else
             <input type="{{ $field['type'] }}" data-type="{{ $field['type'] }}" id="{{ $field['name'] }}"
-                name="{{ $field['name'] }}" value="{{ $user[$field['name']] ?? old($field['name']) }}"
+                name="{{ $field['name'] }}"
+                value="{{ $user[$field['name']] ?? old($field['name']) }}"
                 class="form-control"
                 placeholder="{{ $field['placeholder'] }}">
             @if ($field['type'] == 'password')

@@ -3,14 +3,10 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Support\Facades\Auth;
 
-
-
-class AuthenticateAdmin
+class AuthenticateUser
 {
     /**
      * Handle an incoming request.
@@ -19,8 +15,9 @@ class AuthenticateAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth()->guard("administrator")->check()) {
-            return redirect()->intended('admin/login');
+
+        if (!Auth()->guard("tourist")->check()) {
+            return redirect()->intended('/');
         }
         return $next($request);
     }

@@ -1,0 +1,61 @@
+@use "./../abstracts"as res;
+
+.landing-history {
+
+    .my-container {
+        .counter {
+            margin-bottom: clamp(1rem, 5vw, 3rem);
+            font-weight: 700;
+
+            span {
+                color: var(--majesty);
+            }
+        }
+
+        .history-card__wrapper {
+            counter-reset: index;
+            --width: 18rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(var(--width), 100%), 1fr));
+            gap: 3rem 1rem;
+
+            @include res.responsiveMedia(md) {
+                --width: 20rem;
+            }
+
+            .card {
+                &::before {
+                    counter-increment: index;
+                    content: counter(index);
+                    text-align: center;
+                    background: var(--majesty);
+                    border-top-right-radius: inherit;
+                    border-top-left-radius: inherit;
+                    color: var(--purity);
+                    padding-block: var(--halfPadding);
+                    font-size: 1.2rem;
+                    box-shadow: 0 .4rem .8rem #00000034;
+                }
+
+                .card-body {
+                    display: grid;
+                    grid-template-rows: auto 1fr;
+                }
+
+                .card-title {
+                    margin-bottom: var(--padding);
+                }
+
+                .history-card__body {
+                    display: grid;
+                    align-content: space-between;
+
+                    p {
+                        justify-self: end;
+                    }
+                }
+            }
+        }
+    }
+
+}

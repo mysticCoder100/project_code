@@ -32,7 +32,8 @@
             <a href="{{ url('/payment') }}"
                 class="list-group-item {{ request()->is('payment') ? 'my-active' : '' }}">Payment</a>
             @if (Auth::guard('tourist')->check())
-                <a href="#" class="list-group-item">My History</a>
+                <a href="{{ url('/history') }}"
+                    class="list-group-item {{ request()->is('history') ? 'my-active' : '' }}">My History</a>
             @else
                 <button class="list-group-item" id="userFormToggler">Login</button>
             @endif

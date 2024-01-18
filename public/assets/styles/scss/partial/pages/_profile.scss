@@ -1,0 +1,18 @@
+.profile-main {
+    display: grid;
+
+    section {
+        align-self: center;
+
+        .list-group {
+            max-width: 40rem;
+            margin: auto;
+
+            .list-group-item {
+                background: inherit;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+}

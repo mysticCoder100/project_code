@@ -15,12 +15,13 @@ use App\HTTP\Controllers;
 */
 
 Route::group(["controller" => Controllers\LandingController::class], function () {
-    Route::get('/', "index");
+    Route::get('/', "index")->name("home");
     Route::get('/about', "about");
     Route::get('/contact', "contact");
     Route::get('/payment', "payment");
     Route::get('/attractions', "attractions");
     Route::get('/accomodations', "accomodations");
+    Route::get('/history', "history")->middleware("auth.tourist");
 });
 
 Route::group(["controller" => Controllers\VisitationController::class], function () {
